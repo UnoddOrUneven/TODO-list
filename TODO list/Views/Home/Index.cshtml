@@ -18,11 +18,12 @@
             
             </form>
             
+            
+            @item.Title  - @ToDoExtensions.GetStatus(item)
             <form asp-action="RemoveTask" method="post" style="display:inline">
                 <input type="hidden" name="Id" value="@item.Id" />
-                <button type="submit" >remove</button>
-			</form>
-            @item.Title  - @ToDoExtensions.GetStatus(item)
+                <button type="submit" class="small-button" style="">remove</button>
+            </form>
         
         </li>
     }
