@@ -66,5 +66,17 @@ namespace TODO_list.Controllers
             return RedirectToAction("Index");
 
         }
+
+
+
+        public async Task<IActionResult> RemoveTask(int Id)
+        {
+            Console.WriteLine("RemoveTask is triggered");
+            var todo = await _context.TodoItems.FindAsync(Id);
+
+            _context.TodoItems.Remove(todo);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -20,12 +20,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 // TEMPORARY CLEARING DB 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<TodoContext>();
-    db.Database.EnsureDeleted();   // delete old
-    db.Database.EnsureCreated();   // recreate
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var db = scope.ServiceProvider.GetRequiredService<TodoContext>();
+//    db.Database.EnsureDeleted();   // delete old
+//    db.Database.EnsureCreated();   // recreate
+//}
 
 app.UseHttpsRedirection();
 app.UseRouting();

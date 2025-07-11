@@ -12,12 +12,17 @@
     {
         <li>
             <form asp-action ="ToggleComplete" method ="post" style="display:inline">
-                <input type ="hidden" name="Id" value="@item.Id"/> 
+            <input type ="hidden" name="Id" value="@item.Id"/> 
             <input type ="checkbox" name="IsDone" onchange= "this.form.submit()" @(item.IsDone ? "checked": "")>
-            @item.Title  - @ToDoExtensions.GetStatus(item)
+
+            
             </form>
-        
-        
+            
+            <form asp-action="RemoveTask" method="post" style="display:inline">
+                <input type="hidden" name="Id" value="@item.Id" />
+                <button type="submit" >remove</button>
+			</form>
+            @item.Title  - @ToDoExtensions.GetStatus(item)
         
         </li>
     }
