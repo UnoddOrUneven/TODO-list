@@ -30,7 +30,7 @@ body {
   text-align: start;
 }
 
-.small-button {
+.small-button { /* Used in the remove button*/
     background-color: transparent;
     border: none;
     color: red;
@@ -38,4 +38,16 @@ body {
     font-size: 4px;
     cursor: pointer;
     block-size: min-content;
+}
+
+.main-heading { /* Used in the heading of the app, for people to not forget where they are*/
+    color: mediumslateblue;
+    font-weight: 400;
+    margin-bottom: 1rem;    
+}
+
+.todo-list { 
+    cursor:default;
+    list-style-type:none; 
+    
 }

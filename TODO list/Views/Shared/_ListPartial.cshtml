@@ -1,0 +1,34 @@
+﻿@using TODO_list.Extensions
+@model List<TODO_list.Models.TodoItem>
+@{
+    <ul>
+        @if (!Model.Any())
+        {
+            <div> No tasks </div>
+        }
+
+        @foreach (var item in Model)
+        {
+            <li class="todo-list">
+                <form asp-action="ToggleComplete" method="post" style="display:inline; cursor:;">
+                    <input type="hidden" name="Id" value="@item.Id" />
+                    <input type="checkbox" name="IsDone" onchange="this.form.submit()" @(item.IsDone ? "checked" : "")>
+
+
+                </form>
+
+
+                @item.Title  - @ToDoExtensions.GetStatus(item)
+                <form asp-action="RemoveTask" method="post" style="display:inline">
+                    <input type="hidden" name="Id" value="@item.Id" />
+                    <button type="submit" class="small-button" style="">remove</button>
+                </form>
+
+            </li>
+        }
+
+
+
+    </ul>
+	
+}

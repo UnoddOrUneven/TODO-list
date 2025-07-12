@@ -1,56 +1,12 @@
 ﻿@model List<TODO_list.Models.TodoItem>
 @using TODO_list.Extensions
 
-<h2>Todo List</h2>
-<ul>
-	@if (!Model.Any())
-	{
-	<div> No tasks </div>
-	}
-
-    @foreach (var item in Model)
-    {
-        <li>
-            <form asp-action ="ToggleComplete" method ="post" style="display:inline">
-            <input type ="hidden" name="Id" value="@item.Id"/> 
-            <input type ="checkbox" name="IsDone" onchange= "this.form.submit()" @(item.IsDone ? "checked": "")>
-
-            
-            </form>
-            
-            
-            @item.Title  - @ToDoExtensions.GetStatus(item)
-            <form asp-action="RemoveTask" method="post" style="display:inline">
-                <input type="hidden" name="Id" value="@item.Id" />
-                <button type="submit" class="small-button" style="">remove</button>
-            </form>
-        
-        </li>
-    }
-
-    </ul>
-    <div>
-  
-    </div>
+@await Html.PartialAsync("_ListPartial")
 
 
+<form style="margin-bottom:300px"> </form>
 
-
-
-
-
-
-    <h3>Add task</h3>
-    <form method="post" action="/Home/AddToDo">
-        <div>
-            <label for="Title">Title:</label>
-            <input type="text" id="Title" name="Title" value="" required />
-        </div>
-        <button type="submit">Add</button>
-    </form>
-
-
-
+@await Html.PartialAsync("_AddTaskPartial")
 
 
 
