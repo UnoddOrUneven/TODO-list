@@ -1,0 +1,21 @@
+﻿@model List<TODO_list.Models.Settings>
+
+
+<h1>Settings</h1>
+
+@if (!Model.Any())
+{
+    <div> No settimgs available </div>
+}
+<ul>
+    @foreach (var setting in Model)
+    {
+        <li class="todo-list">
+            <form asp-action="ToggleSetting" method="post" style="display:inline;">
+                <input type="hidden" name="Id" value="@setting.Id" />
+                <input type="checkbox" name="IsOn" onchange="this.form.submit()" @(setting.IsOn ? "checked" : "") />
+                @setting.Title
+            </form>
+        </li>
+    }
+</ul>

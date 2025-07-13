@@ -17,6 +17,10 @@ namespace TODO_list.Extensions
             return todo.IsDone ? "Done" : "In process";
         }
 
+        public static string GetStatusSettings(this Models.Settings settings)
+        {
+            return settings.IsOn ? "On!" : "Off!"; 
+        }
 
     }
 }

@@ -9,7 +9,7 @@
 
         @foreach (var item in Model)
         {
-            <li class="todo-list">
+            <li  class="todo-list">
                 <form asp-action="ToggleComplete" method="post" style="display:inline; cursor:;">
                     <input type="hidden" name="Id" value="@item.Id" />
                     <input type="checkbox" name="IsDone" onchange="this.form.submit()" @(item.IsDone ? "checked" : "")>

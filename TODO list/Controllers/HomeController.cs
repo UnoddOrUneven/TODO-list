@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TODO_list.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace TODO_list.Controllers
 {
@@ -25,6 +26,12 @@ namespace TODO_list.Controllers
             var todos = await _context.TodoItems.ToListAsync();
             // Pass the list into todo 
             return View(todos);
+        }
+
+        public async Task<IActionResult> Settings()
+        {
+            var settings = await _context.Settings.ToListAsync();
+            return View(settings);
         }
 
         public IActionResult Privacy()
@@ -53,6 +60,9 @@ namespace TODO_list.Controllers
 
         }
 
+       
+
+
         public async Task<IActionResult> ToggleComplete(int Id, bool IsDone)
         {
 
@@ -67,6 +77,8 @@ namespace TODO_list.Controllers
 
         }
 
+        
+
 
 
         public async Task<IActionResult> RemoveTask(int Id)
@@ -78,6 +90,8 @@ namespace TODO_list.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+
 
 
     }

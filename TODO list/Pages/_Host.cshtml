@@ -1,0 +1,10 @@
+﻿@page "/"
+@using TODO_list.Pages
+@namespace TODO_list.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<component type="typeof(ContextMenu)" render-mode="ServerPrerendered" />
+

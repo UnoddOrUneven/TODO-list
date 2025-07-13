@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+@* <div @onclick="HandleClick" @oncontextmenu="HandleRightClick" @oncontextmenu:preventDefault="true">
+    this is a div
+</div> *@
+
+@code {
+
+    void HandleClick(MouseEventArgs args)
+    {
+        Console.WriteLine("This is a left click");
+    }
+
+    void HandleRightClick(MouseEventArgs args)
+    {
+           Console.WriteLine("This is a right click");
+    }
+}
+
+    

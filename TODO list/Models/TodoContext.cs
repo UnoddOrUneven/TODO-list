@@ -10,6 +10,8 @@ namespace TODO_list.Models
         {
         }
 
+        // Models 
         public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Settings> Settings { get; set; }
     }
 }

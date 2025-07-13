@@ -10,7 +10,16 @@ builder.Services.AddDbContext<TodoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TodoContext"),
     sqlOptions => sqlOptions.EnableRetryOnFailure()));
 
+
+//builder.Services.AddRazorPages();
+//builder.Services.AddServerSideBlazor(); //Blazor support
 var app = builder.Build();
+
+
+
+//app.MapBlazorHub();
+
+//app.MapFallbackToPage("/_Host");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -33,6 +42,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
 
 app.MapControllerRoute(
     name: "default",
