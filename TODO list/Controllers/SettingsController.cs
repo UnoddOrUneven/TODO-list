@@ -19,6 +19,11 @@ namespace TODO_list.Controllers
 
 
             }
+        public async Task<IActionResult> SettingsIndex()
+        {
+            var settings = await _context.Settings.ToListAsync();
+            return View(settings);
+        }
 
         [HttpGet]
         public async Task<IActionResult> AddSetting(string title)
@@ -32,20 +37,22 @@ namespace TODO_list.Controllers
             _context.Settings.Add(setting);
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("Settings");
+            return RedirectToAction("SettingsIndex");
 
         }
 
-        public async Task<IActionResult> ToggleOn(int Id, bool IsOn)
+        [HttpPost]
+        public async Task<IActionResult> ToggleSetting(int Id, bool IsOn)
         {
+            Console.WriteLine("Setting toggled!");
             var setting = await _context.Settings.FindAsync(Id);
             if (setting != null)
             {
                 setting.IsOn = !setting.IsOn;
                 await _context.SaveChangesAsync();
             }
-
-            return RedirectToAction("Settings");
+            
+            return RedirectToAction("SettingsIndex");
         }
 
 
