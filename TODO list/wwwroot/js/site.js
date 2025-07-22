@@ -1,4 +1,19 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+const button = document.querySelector('#confetti-button');
+const canvas = document.querySelector('#confetti');
 
-// Write your JavaScript code.
+const jsConfetti = new JSConfetti()
+button.addEventListener('click', () => {
+    console.log("Clicked!");
+    jsConfetti.addConfetti();
+});
+
+function shootConfettiAndSubmit(checkbox) {
+    
+    jsConfetti.addConfetti();
+    setTimeout(() => {
+        checkbox.form.submit(checkbox); 
+    }, 2500);
+    
+
+}

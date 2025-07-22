@@ -19,7 +19,7 @@ namespace TODO_list.Extensions
 
         public static string GetStatusSettings(this Models.Settings settings)
         {
-            return settings.IsOn ? "On!" : "Off!"; 
+            return settings.IsOn ? "Enabled" : "Disabled"; 
         }
 
     }

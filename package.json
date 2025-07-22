@@ -1,0 +1,13 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/UnoddOrUneven/TODO-list.git",
+  "author": "UnoddOrUneven <romangorbunov4890@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "js-confetti": "^0.12.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
