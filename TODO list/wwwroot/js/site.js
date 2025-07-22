@@ -9,11 +9,12 @@ button.addEventListener('click', () => {
 });
 
 function shootConfettiAndSubmit(checkbox) {
-    
+
     jsConfetti.addConfetti();
+    
     setTimeout(() => {
         checkbox.form.submit(checkbox); 
-    }, 2500);
+    }, 2000);
     
 
 }

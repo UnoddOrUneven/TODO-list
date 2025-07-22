@@ -1,5 +1,12 @@
-﻿@using TODO_list.Extensions
+﻿@inject TODO_list.Models.TodoContext _context
+@using TODO_list.Extensions
 @model List<TODO_list.Models.TodoItem>
+
+@{
+    var Confetti = _context.Settings.FirstOrDefault(s => s.Title == "Confetti" && s.IsOn);
+    var confettiTrigger = Confetti != null && Confetti.IsOn ? "shootConfettiAndSubmit(this)" : "this.form.submit()";
+}
+
 @{
     <ul>
         @if (!Model.Any())
@@ -12,7 +19,7 @@
             <li  class="todo-list">
                 <form asp-action="ToggleComplete" method="post" style="display:inline; cursor:;">
                     <input type="hidden" name="Id" value="@item.Id" />
-                    <input type="checkbox" name="IsDone" onchange="this.form.submit()" @(item.IsDone ? "checked" : "")>
+                    <input type="checkbox" name="IsDone" onchange="@confettiTrigger" @(item.IsDone ? "checked" : "")>
 
 
                 </form>
