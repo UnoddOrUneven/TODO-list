@@ -9,12 +9,19 @@ button.addEventListener('click', () => {
 });
 
 function shootConfettiAndSubmit(checkbox) {
-
-    jsConfetti.addConfetti();
+    if (checkbox.checked) {
+        jsConfetti.addConfetti();
+        setTimeout(() => {
+            checkbox.form.submit(checkbox);
+        }, 2000);
+    }
+    else {
+        checkbox.form.submit(checkbox);
+        console.log("HELLLO WORLDD");
+    }
     
-    setTimeout(() => {
-        checkbox.form.submit(checkbox); 
-    }, 2000);
+    
+    
     
 
 }
