@@ -73,3 +73,6 @@ body.dark-theme {
     color: white;
 
 }
+.green-checkbox {
+    filter: hue-rotate(240deg)
+}

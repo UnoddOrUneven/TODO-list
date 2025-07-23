@@ -19,7 +19,7 @@
             <li  class="todo-list">
                 <form asp-action="ToggleComplete" method="post" style="display:inline; cursor:;">
                     <input type="hidden" name="Id" value="@item.Id" />
-                    <input type="checkbox" name="IsDone" onchange="@confettiTrigger" @(item.IsDone ? "checked" : "")>
+                    <input type="checkbox" class ="green-checkbox" name="IsDone" onchange="@confettiTrigger" @(item.IsDone ? "checked" : "")>
 
 
                 </form>
