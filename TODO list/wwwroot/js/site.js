@@ -5,26 +5,20 @@ const canvas = document.querySelector('#confetti');
 const jsConfetti = new JSConfetti()
 button.addEventListener('click', () => {
     console.log("Clicked!");
-
+    jsConfetti.addConfetti();
 });
 
 function shootConfettiAndSubmit(checkbox) {
     if (checkbox.checked) {
-        jsConfetti.addConfetti({
-            emojis: ['✅'],
-        })
-        
+        jsConfetti.addConfetti();
+        setTimeout(() => {
+            checkbox.form.submit(checkbox);
+        }, 2000);
     }
-    fetch(checkbox.form.action, {
-        method: 'POST',
-        body: formData
-    })
-        .then(() => {
-            console.log("Setting updated!");
-        })
-        .catch((error) => {
-            console.error("Error submitting:", error);
-        });
+    else {
+        checkbox.form.submit(checkbox);
+        console.log("HELLLO WORLDD");
+    }
     
     
     
