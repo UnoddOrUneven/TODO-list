@@ -1,19 +1,17 @@
 ﻿
-const button = document.querySelector('#confetti-button');
+
 const canvas = document.querySelector('#confetti');
 
 const jsConfetti = new JSConfetti()
-button.addEventListener('click', () => {
-    console.log("Clicked!");
 
-});
 
 function shootConfettiAndSubmit(checkbox) {
+    const formData = new FormData(checkbox.form); 
     if (checkbox.checked) {
         jsConfetti.addConfetti({
             emojis: ['✅'],
         })
-        
+            
     }
     fetch(checkbox.form.action, {
         method: 'POST',
