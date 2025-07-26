@@ -1,9 +1,11 @@
 ﻿@inject TODO_list.Models.TodoContext _context
 @{
     var darkMode = _context.Settings.FirstOrDefault(s => s.Title == "NightMode" && s.IsOn);
-    var bodyClass = darkMode != null ? "dark-theme" : "light-theme";
-    var navbarTheme = darkMode != null ? "bg-dark navbar-dark text-white" : "bg-white navbar-light text-dark";
-    var containerTheme = darkMode != null ? "container-dark-theme" : "container";
+    bool IsDarkMode = darkMode != null;
+    var bodyClass = IsDarkMode ? "dark-theme" : "light-theme";
+    var navbarTheme = IsDarkMode  ? "bg-dark navbar-dark text-white" : "bg-white navbar-light text-dark";
+    var containerTheme = IsDarkMode ? "container-dark-theme" : "container";
+    var navLinkText = IsDarkMode ? "nav-link text-light" : "nav-link text-dar";
 }
 
 <!DOCTYPE html>
@@ -33,10 +35,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="@navLinkText" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Settings" asp-action="SettingsIndex">Settings</a>
+                            <a class="@navLinkText" asp-controller="Settings" asp-action="SettingsIndex">Settings</a>
                             
                             </li>
 

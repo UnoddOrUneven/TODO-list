@@ -17,7 +17,7 @@ function shootConfettiAndSubmit(checkbox) {
     }
     else {
         checkbox.form.submit(checkbox);
-        console.log("HELLLO WORLDD");
+       
     }
     
     

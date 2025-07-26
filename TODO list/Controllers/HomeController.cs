@@ -83,7 +83,7 @@ namespace TODO_list.Controllers
 
         public async Task<IActionResult> RemoveTask(int Id)
         {
-            Console.WriteLine("RemoveTask is triggered");
+            Console.WriteLine("Task removed");
             var todo = await _context.TodoItems.FindAsync(Id);
 
             _context.TodoItems.Remove(todo);
