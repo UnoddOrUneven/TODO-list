@@ -2,10 +2,7 @@
 @inject TODO_list.Models.TodoContext _context
 @model List<TODO_list.Models.Settings>
 
-@{
-    var Confetti = _context.Settings.FirstOrDefault(s => s.Title == "Confetti" && s.IsOn);
-    var confettiTrigger = Confetti != null && Confetti.IsOn ? "shootConfettiAndSubmit(this)" : "this.form.submit()";
-}
+
 
 
 
@@ -21,7 +18,7 @@
         <li class="todo-list">
             <form asp-controller = "Settings" asp-action="ToggleSetting" method="post" style="display:inline;">
                 <input type="hidden" name="Id" value="@setting.Id" />
-                <input type="checkbox" name="IsOn" onchange="@confettiTrigger" @(setting.IsOn ? "checked" : "") />
+                <input type="checkbox" name="IsOn" onchange="this.form.submit()" @(setting.IsOn ? "checked" : "") />
                 @setting.Title - @ToDoExtensions.GetStatusSettings(setting)
             </form>
         </li>
@@ -30,6 +27,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 <script src="site.js" </script>
-
-
 <canvas id="confetti"> </canvas>
